@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-	Copyright Since 2022 Coalesce Solutions
+	Copyright 2022 Coalesce Solutions
 	<br>
 	<a href="https://www.coalescesolutions.com">www.coalescesolutions.com</a>
 </p>
@@ -20,7 +20,7 @@ https://portal.aws.amazon.com/billing/signup
 2) Create IAM User Account or Role with access to AWS services
 https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html
 
-3. Download the latest AWS SDK (version 1) from [https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip](https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip). We will not be using version 2 of the AWS SDK, as it requires using Maven to build the necessary components and thus adds a decent amount of complexity towards getting started with the SDK. It is recommended, however, to use Maven if you intend to run your ColdFusion application in Lambda to reduce your application storage and memory size.
+3. Download the latest AWS SDK (version 1) from [https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip](https://sdk-for-java.amazonwebservices.com/latest/aws-java-sdk.zip). These modules will not work with version 2 of the AWS SDK, as it requires using Maven to build the necessary components and thus adds a decent amount of complexity towards getting started with the SDK. It is recommended, however, to use Maven if you intend to run your ColdFusion application in Lambda to reduce your application storage and memory size.
 
 4. Create the Role or User account in AWS Identity and Access Management (IAM) to be utilized by the ColdFusion service. It is highly recommended to follow the [principal of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) when assigning access rights to your ColdFusion service. See [https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) for more information.
 
@@ -86,19 +86,14 @@ AWS Secrets Manager enables you to replace hardcoded credentials in your code, i
 
 
 ## How do I set it up?
-AWS Console, Secrets Manager screenshots
-Optional – Set up password rotation. Challenge would be triggering ColdFusion DSN or your app to update its secret stored in memory as well. Consider setting up Lambda and manually kicking it off in coordination with any application specifics.
+AWS Console, Secrets Manager, Store a new secret
+Optional – Set up password rotation. Example use of this would be rotating your RDS (database) password and trigger a Lambda to update the ColdFusion datasource.
 
 ## Functions, objects and methods used in this module:
 
 ### (From secrets.cfm file) 
 
 Fetched the authenticated client object using the createObject object that takes in the awsssm client parameter and stores the secret in the mySSMComponent variable
-
-```haskell
-https://github.com/AJChapman/formatting 
-```
-
 
 
 # SSM Parameter Store
